@@ -63,7 +63,7 @@ Connection: close
 Content-Type: text/html; charset=UTF-8
 ```
 
-That **auth** cookie doesn't look like any of the standard cookies I might expect to see like JWT or the PHPSESSION cookies. It could just be a value or serialized data structure encrypted with a secret key. If so there is an attack that might work called *Padding Oracle* that might be able to discover that secret key and decrypt the value.
+That **auth** cookie doesn't look like any of the standard cookies I might expect to see like JWT or the PHPSESSION cookies. It could just be a value or serialized data structure encrypted with a secret key. If so there is an attack that called *Padding Oracle* that might be able to discover that secret key and decrypt the value.
 
 ```
 rustpad web --oracle "http://${TDOMAIN}/home/index.php" --decrypt ld7SfazGQgAv7spXpgaoxTprstoV2QMV -H "Cookie: auth=CTEXT"  --block_size 8
