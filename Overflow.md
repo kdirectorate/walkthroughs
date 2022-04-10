@@ -127,7 +127,7 @@ A new vhost and our "editor" user can login to it too!
 
 Even better! A new vhost we can login to and has an upload function we can exploit! When I upload an image I get a nice message saying it was successful, but again checking Burpsuite I find that the 302 redirect we got has some interesting information:
 
-![image-20220409174231135](C:/Users/shinhwa/AppData/Roaming/Typora/typora-user-images/image-20220409174231135.png)
+![image-20220409174231135](images/overflow/302-upload.png)
 
 *ExifTool* is processing the image. *ExifTool* has been susceptible to several interesting exploits mostly because images don't have to be a collection of pixels when *ExifTool* processes them. Instead they can be instructions on how to create the image. We can use *ExifTool* in this case to perform a Remote Command Execution (RCE) as described here:  https://blog.convisoappsec.com/en/a-case-study-on-cve-2021-22204-exiftool-rce/
 
